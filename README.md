@@ -18,8 +18,10 @@ Dataset[ID] = [seq, label]
 The  normalized feature matrixes PSSM(L * 20), HMM(L * 20), DSSP(L * 14) and resAF(L * 7) are stored in ./Feature in numpy format.  
 
 Due to GitHub limitations, the distance maps(L * L) data file is stored on Google Drive:  
-[Download Link](https://drive.google.com/file/d/1FALjEynRcnmthxZcVblEWpk1eMsM3vdG/view?usp=drive_link)
+[distance maps](https://drive.google.com/file/d/1FALjEynRcnmthxZcVblEWpk1eMsM3vdG/view?usp=drive_link)
 
+The protein PDB files are stored on Google Drive:
+[distance maps](https://drive.google.com/drive/folders/1UKX1dIrzrEPQpGyYcvIJlrm6KAKvNEpp?usp=drive_link)
 
 # Running GTE-PPIS 
 Train the model with default parameters:  
