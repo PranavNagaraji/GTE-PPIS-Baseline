@@ -10,7 +10,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 # Feature_Path = "./Feature/"
-Feature_Path = "/pubssd/PPIs/Feature/"
+Feature_Path = "/home/pranav/PRANAV/GTE-PPIS/Feature/"
 # Seed
 SEED = 2024
 np.random.seed(SEED)
@@ -106,7 +106,7 @@ def graph_collate(samples):
 
 
 class ProDataset(Dataset):
-    def __init__(self, dataframe, radius=MAP_CUTOFF, dist=DIST_NORM, psepos_path='/pubssd/PPIs/Feature/psepos/Train335_psepos_SC.pkl'):
+    def __init__(self, dataframe, radius=MAP_CUTOFF, dist=DIST_NORM, psepos_path='/home/pranav/PRANAV/GTE-PPIS/Feature/psepos/Train335_psepos_SC.pkl'):
         self.names = dataframe['ID'].values
         self.sequences = dataframe['sequence'].values
         self.labels = dataframe['label'].values

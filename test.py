@@ -1,4 +1,5 @@
 import os
+import argparse
 import pandas as pd
 from torch.autograd import Variable
 from sklearn import metrics
@@ -10,7 +11,11 @@ from final_model import *
 from GraphTransformer_Block import *
 
 Dataset_Path = "./Dataset/"
-Model_Path = "./Log/2024-12-09-19-12-36/model/"
+
+parser = argparse.ArgumentParser(description="Test GTE-PPIS on benchmark datasets")
+parser.add_argument('--log_dir', type=str, required=True, help="Timestamp directory of the trained model (e.g. 2026-10-15-17-33-28)")
+args = parser.parse_args()
+Model_Path = f"./Log/{args.log_dir}/model/"
 
 
 def evaluate(model, data_loader):
@@ -194,10 +199,10 @@ def main():
     # print(f"Btest_31_6 keys: {list(Btest_31_6.keys())}")
     # raise
 
-    Test60_psepos_Path = '/pubssd/PPIs/Feature/psepos/Test60_psepos_SC.pkl'
-    Test315_28_psepos_Path = '/pubssd/PPIs/Feature/psepos/Test315-28_psepos_SC.pkl'
-    Btest31_psepos_Path = '/pubssd/PPIs/Feature/psepos/Test60_psepos_SC.pkl'
-    UBtest31_28_psepos_Path = '/pubssd/PPIs/Feature/psepos/UBtest31-6_psepos_SC.pkl'
+    Test60_psepos_Path = '/home/pranav/PRANAV/GTE-PPIS/Feature/psepos/Test60_psepos_SC.pkl'
+    Test315_28_psepos_Path = '/home/pranav/PRANAV/GTE-PPIS/Feature/psepos/Test315-28_psepos_SC.pkl'
+    Btest31_psepos_Path = '/home/pranav/PRANAV/GTE-PPIS/Feature/psepos/Test60_psepos_SC.pkl'
+    UBtest31_28_psepos_Path = '/home/pranav/PRANAV/GTE-PPIS/Feature/psepos/UBtest31-6_psepos_SC.pkl'
 
     print("Evaluate GraphPPIS on Test_60")
     test_one_dataset(Test_60, Test60_psepos_Path)

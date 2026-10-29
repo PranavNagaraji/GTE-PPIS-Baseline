@@ -349,7 +349,8 @@ def main():
 
     with open(Dataset_Path + "Train_335.pkl", "rb") as f:
         Train_335 = pickle.load(f)
-        Train_335.pop('2j3rA')  # remove the protein with error sequence in the train dataset
+        if '2j3rA' in Train_335:
+            del Train_335['2j3rA']  # remove anomalous chain to match paper's Train_334 (334 proteins)
 
     IDs, sequences, labels = [], [], []
 

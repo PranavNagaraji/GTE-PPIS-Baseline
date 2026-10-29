@@ -10,7 +10,7 @@ class FinalModel(nn.Module):
     def __init__(self,input_size,hidden_size,fliter_size,output_size,dropout_rate,n_layers):
         super(FinalModel, self).__init__()
         self.Egnn = EGNN(in_node_nf=input_size, hidden_nf=hidden_size, out_node_nf=output_size, in_edge_nf=2, n_layers=10, attention=True,residual=False)
-        self.GT = GraghTransformer(in_channels=input_size,edge_features=2,dropout_rate=dropout_rate,num_layers=4,transformer_residual=False)
+        self.GT = GraghTransformer(in_channels=input_size,edge_features=2,dropout_rate=dropout_rate,num_layers=4,transformer_residual=True)
     
         self.criterion = nn.CrossEntropyLoss()  # automatically do softmax to the predicted value and one-hot to the label
         self.optimizer = torch.optim.Adam(self.parameters(), lr=LEARNING_RATE, weight_decay=WEIGHT_DECAY)
